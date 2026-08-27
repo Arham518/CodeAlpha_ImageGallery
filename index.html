@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurelia | Luxury Image Gallery</title>
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-crown"></i> Aurelia
+        </div>
+        <div class="nav-links">
+            <a href="#" class="active">Gallery</a>
+            <a href="#">Collections</a>
+            <a href="#">About</a>
+        </div>
+    </nav>
+
+    <!-- Hero Slider -->
+    <section class="hero">
+        <div class="slider-container" id="hero-slider">
+            <!-- Slides will be injected by JS -->
+        </div>
+        <div class="slider-controls">
+            <button class="slider-btn prev-btn" id="slider-prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="slider-btn next-btn" id="slider-next"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="slider-indicators" id="slider-indicators">
+            <!-- Indicators injected by JS -->
+        </div>
+    </section>
+
+    <!-- Controls (Search & Filters) -->
+    <section class="controls-section">
+        <div class="controls-container">
+            <div class="filters" id="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="Nature">Nature</button>
+                <button class="filter-btn" data-filter="Architecture">Architecture</button>
+                <button class="filter-btn" data-filter="Technology">Technology</button>
+                <button class="filter-btn" data-filter="Travel">Travel</button>
+                <button class="filter-btn" data-filter="Animals">Animals</button>
+            </div>
+            <div class="search-box">
+                <i class="fa-solid fa-search"></i>
+                <input type="text" id="search-input" placeholder="Search by title or category...">
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Gallery (Masonry) -->
+    <main class="gallery-section">
+        <div class="gallery" id="gallery">
+            <!-- Gallery items injected by JS -->
+        </div>
+        <div class="no-results" id="no-results" style="display: none;">
+            <i class="fa-solid fa-images"></i>
+            <h2>No images found</h2>
+            <p>Try adjusting your search or filters.</p>
+        </div>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close"><i class="fa-solid fa-xmark"></i></button>
+        <div class="lightbox-content">
+            <img src="" alt="Lightbox Image" id="lightbox-img">
+            <div class="lightbox-info">
+                <h3 id="lightbox-title">Title</h3>
+                <span id="lightbox-category" class="tag">Category</span>
+            </div>
+        </div>
+        <button class="lightbox-nav prev" id="lightbox-prev"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="lightbox-nav next" id="lightbox-next"><i class="fa-solid fa-chevron-right"></i></button>
+        <button class="lightbox-zoom" id="lightbox-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+    </div>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>
