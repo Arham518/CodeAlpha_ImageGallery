@@ -6,7 +6,7 @@ for (let i = 1; i <= 150; i++) {
     const category = categories[i % categories.length];
     galleryData.push({
         id: i,
-        title: `Aurelia ${category} Collection ${Math.ceil(i / categories.length)}`,
+        title: `ApexSnap ${category} Collection ${Math.ceil(i / categories.length)}`,
         category: category,
         // Picsum seed guarantees the URL works perfectly and is consistent
         url: `https://picsum.photos/seed/aurelia${i}/800/600`
@@ -134,12 +134,13 @@ function renderGallery(data) {
             </div>
         `;
         
-        // Staggered animation
-        div.style.animationDelay = `${(index % 10) * 0.1}s`;
+        // Staggered entrance (handled by animations.js reveal observer)
+        div.style.setProperty('--stagger', `${(index % 8) * 70}ms`);
         
         div.addEventListener('click', () => openLightbox(index));
         galleryContainer.appendChild(div);
     });
+    document.dispatchEvent(new CustomEvent('gallery:rendered'));
 }
 
 function filterGallery() {
@@ -177,7 +178,10 @@ function updateLightboxContent() {
         ? item.url.replace('w=800', 'w=1200')
         : item.url.replace('800/600', '1200/900');
     
+    lightboxImg.classList.remove('swap-in');
+    void lightboxImg.offsetWidth;
     lightboxImg.src = highResUrl;
+    lightboxImg.classList.add('swap-in');
     lightboxTitle.textContent = item.title;
     lightboxCategory.textContent = item.category;
 }
